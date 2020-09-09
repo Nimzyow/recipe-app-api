@@ -1,0 +1,12 @@
+version: "3"
+#below says we are going to have a service called app and the build section of the context will be set to the root directory of the project
+services:
+    app:
+        build:
+            context: .
+        ports:
+            - "8000:8000"
+        volumes:
+            - ./app:/app
+        command: >
+            sh -c "python manage.py runserver 0.0.0.0:8000"
